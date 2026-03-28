@@ -159,6 +159,10 @@ section p {
 }
 
 /* ---- Repo link ---- */
+#repo {
+  text-align: center;
+}
+
 .repo-link {
   display: inline-block;
   margin-top: 0.85rem;
