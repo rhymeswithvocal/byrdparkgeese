@@ -47,17 +47,11 @@ header {
 .goose-banner {
   font-size: 2.8rem;
   letter-spacing: 0.3rem;
-  animation: waddle 2s ease-in-out infinite alternate;
-}
-
-@keyframes waddle {
-  from { transform: rotate(-4deg); }
-  to   { transform: rotate(4deg);  }
 }
 
 .honk {
   position: absolute;
-  top: 0;
+  top: -0.25rem;
   background: white;
   color: var(--green-dark);
   font-family: monospace;
@@ -67,20 +61,28 @@ header {
   border-radius: 999px;
   border: 2px solid var(--green-dark);
   white-space: nowrap;
-  animation: honk-pop 3s ease-out infinite;
   opacity: 0;
-  /* speech bubble tail via box shadow trick */
   pointer-events: none;
+  animation: honk-appear 8s ease-in-out infinite;
 }
 
-.honk-left  { right: calc(100% + 0.5rem); animation-delay: 0s;    }
-.honk-right { left:  calc(100% + 0.5rem); animation-delay: 1.5s;  }
+.honk-left  { right: calc(100% + 0.5rem); animation-delay: 0s;  }
+.honk-right { left:  calc(100% + 0.5rem); animation-delay: 4s;  }
 
-@keyframes honk-pop {
-  0%   { opacity: 0;   transform: translateY(0);     }
-  15%  { opacity: 1;   transform: translateY(-6px);  }
-  60%  { opacity: 1;   transform: translateY(-14px); }
-  100% { opacity: 0;   transform: translateY(-24px); }
+@keyframes honk-appear {
+  /* sit invisible for most of the cycle */
+  0%,  60%  { opacity: 0; transform: translateX(0);    }
+  /* pop in */
+  61%        { opacity: 1; transform: translateX(0);    }
+  /* shake */
+  63%        { transform: translateX(-4px); }
+  65%        { transform: translateX( 4px); }
+  67%        { transform: translateX(-3px); }
+  69%        { transform: translateX( 3px); }
+  71%        { transform: translateX(0);    }
+  /* linger a moment then vanish */
+  82%        { opacity: 1; transform: translateX(0); }
+  85%, 100%  { opacity: 0; transform: translateX(0); }
 }
 
 header h1 {
