@@ -3,58 +3,357 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>311 Responsive Text Updates</title>
+  <title>Richmond 311 by Text</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪿</text></svg>" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- Hero ---- */
+    #hero {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      color: white;
+      text-align: center;
+      padding: 4rem 1.5rem 3.5rem;
+    }
+
+    .hero-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: normal;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .hero-sub {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      color: white !important;
+    }
+
+    .cta-block {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .cta-label {
+      font-size: 1.1rem;
+      color: white !important;
+    }
+
+    .cta-label strong {
+      font-size: 1.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    .cta-example {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      opacity: 0.85;
+      color: white !important;
+      font-family: monospace;
+    }
+
+    .cta-small {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      color: white !important;
+    }
+
+    /* ---- Section caption / data note ---- */
+    .section-caption {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .data-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ---- Screenshot placeholder ---- */
+    .screenshot-placeholder {
+      margin: 1.25rem 0 0.4rem;
+      border: 2px dashed var(--green-mid);
+      border-radius: var(--radius);
+      background: var(--green-light);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .screenshot-label {
+      font-weight: bold;
+      color: var(--green-dark);
+      font-size: 0.95rem;
+    }
+
+    .screenshot-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .screenshot-img {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 1.25rem auto 0.4rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .screenshot-caption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ---- Steps list ---- */
+    .steps {
+      margin-top: 0.85rem;
+      padding-left: 1.4rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sub-list {
+      margin-top: 0.4rem;
+      padding-left: 1.2rem;
+      list-style: disc;
+      font-size: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    /* ---- Check list ---- */
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--muted);
+    }
+
+    .check-list li::before {
+      content: "✓ ";
+      color: var(--green-dark);
+      font-weight: bold;
+    }
+
+    /* ---- Plain list ---- */
+    .plain-list {
+      margin-top: 0.75rem;
+      padding-left: 1.4rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .plain-list.indent {
+      margin-top: 0.4rem;
+    }
+
+    /* ---- Differentiator callout ---- */
+    .differentiator {
+      margin-top: 1.25rem;
+      padding: 0.75rem 1rem;
+      border-left: 3px solid var(--green-mid);
+      background: var(--green-light);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* ---- Scope note ---- */
+    .scope-note {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ---- Bottom CTA ---- */
+    #bottom-cta {
+      text-align: center;
+    }
+
+    .bottom-cta-label {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .bottom-phone {
+      margin-top: 0.5rem;
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: var(--green-dark);
+      letter-spacing: 0.05em;
+      font-family: monospace;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .footer-sub {
+      font-size: 0.82rem;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Richmond Works in Progress</h1>
-    <p class="tagline">A Richmond Civic Hackathon project by the Byrd Park Geese</p>
-    <div class="goose-zone">
-      <span class="honk honk-left">HONK!</span>
-      <div class="goose-banner">🪿🪿🪿🪿</div>
-      <span class="honk honk-right">HONK!</span>
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+  <section id="hero">
+    <div class="hero-inner">
+      <h1>Text311</h1>
+      <p class="hero-sub">A simple way to text about issues in the city of Richmond.</p>
+
+      <div class="cta-block">
+        <p class="cta-label">Text <strong>804-244-9471</strong> with an address or intersection and what you're seeing.</p>
+        <p class="cta-example">Example: "Pothole at Cary and Meadow"</p>
+        <p class="cta-label">You'll get back any nearby requests and the option to make your own.</p>
+
+      </div>
     </div>
-  </header>
+  </section>
 
   <main>
-    <section id="brief">
-      <h2>Our Goal</h2>
-      <p>
-        Richmond's 311 service handles thousands of service requests per month, but a city resident may not know what's happening in their own neighborhood. Our 311 responsive text service allows anybody, in any language, with any phone (no app or smartphone required) to reach the 311 database via text. They can learn the status of nearby work or submit a new service request without calling in.
-      </p>
+
+    <!-- ======================================================
+         EXAMPLE
+    ====================================================== -->
+    <section id="example">
+      <h2>What it Looks Like</h2>
+      <p class="section-caption">A real interaction using live RVA311 data</p>
+
+      <img src="text1.jpg" alt="Example text conversation: user reports a pothole, tool responds with nearby issue and status from RVA311" class="screenshot-img" />
+      <p class="screenshot-caption">Example of checking existing issues</p>
+
+      <p class="data-note">Responses are based on live RVA311 data.</p>
     </section>
 
-    <section id="try-it">
-      <h2>Try It!</h2>
-      <ol class="instructions">
-        <li><b>Send a text to 804-244-9471 that includes a location in Richmond!</b> Could be your house, a pothole you know and love, or one of the suggested texts below. Addresses do not need to be perfectly formatted in the text!
-          <ul class="address-list">
-            <li>There's a pothole at Kensington and Cleveland.</li>
-            <li>I see graffiti in the VMFA garden.</li>
-            <li>The sidewalk is broken in front of 1912 Powhatan St.</li>
+    <!-- ======================================================
+         PHONE CTA (after example)
+    ====================================================== -->
+    <section id="bottom-cta">
+      <p class="bottom-cta-label">To try it, text the number below with a city issue and a location.</p>
+      <p class="bottom-phone">804-244-9471</p>
+    </section>
+
+    <!-- ======================================================
+         WHAT HAPPENS WHEN YOU TEXT
+    ====================================================== -->
+    <section id="how-it-works">
+      <h2>What happens when you text</h2>
+
+      <ol class="steps">
+        <li>You describe what you're seeing and where</li>
+        <li>Text311 uses the OpenAI API to understand your request</li>
+        <li>Text311 tool checks Richmond's 311 data</li>
+        <li>
+          You get a response with:
+          <ul class="sub-list">
+            <li>nearby reported issues and status</li>
+            <li>or a way to submit a new request</li>
           </ul>
+        <li>If you want to submit a request, you can do so right from the message.*</li>
         </li>
-        <li>The number will reply, ask any clarifying questions, and give you a list of any nearby 311 work. </li>
-        <li>If the existing reports don't cover your need, ask the textbot to submit a request, and it will interface with the RVA311 site to do so! (Currently only supports pothole and sidewalk repairs.)</li>
       </ol>
+      <p class="data-note">* See scope section for request types covered.</p>
     </section>
 
-    <section id="video">
-      <h2>Presentation</h2>
-      <div class="video-wrapper">
-        <!-- Replace the src with your actual presentation video embed URL -->
-        <iframe
-          src="about:blank"
-          title="311 Responsive Text Updates — Hackathon Presentation"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
+    <!-- ======================================================
+         ACCESS
+    ====================================================== -->
+    <section id="access">
+      <h2>Access</h2>
+      <ul class="check-list">
+        <li>Works on any phone (no smartphone required)</li>
+        <li>No internet or app needed</li>
+        <li>No account or login</li>
+        <li>Responds in the language you use</li>
+      </ul>
     </section>
 
+    <!-- ======================================================
+         WHAT IT HELPS WITH
+    ====================================================== -->
+    <section id="helps-with">
+      <h2>What it helps with</h2>
+      <ul class="check-list">
+        <li>See if an issue has already been reported</li>
+        <li>Avoid submitting duplicate requests</li>
+        <li>Submit certain new requests (potholes and sidewalks in this prototype)</li>
+      </ul>
+
+    </section>
+
+    <!-- ======================================================
+         DATA SOURCES
+    ====================================================== -->
+    <section id="data-sources">
+      <h2>Data sources</h2>
+      <ul class="plain-list">
+        <li>RVA311 public API (service requests and status)</li>
+        <li>Standard geocoding services</li>
+      </ul>
+      <p class="data-note">This approach works with existing systems rather than requiring a new platform.</p>
+    </section>
+
+    <!-- ======================================================
+         CURRENT SCOPE
+    ====================================================== -->
+    <section id="scope">
+      <h2>Current scope</h2>
+      <p class="section-p">New request submission currently supports:</p>
+      <ul class="plain-list indent">
+        <li>potholes</li>
+        <li>sidewalk issues</li>
+      </ul>
+      <p class="scope-note">Other request types are directed to RVA311, similar to the current system.</p>
+      <p class="scope-note">Additional request types can be easily added given additional time.</p>
+    </section>
+
+    <!-- ======================================================
+         CODE REPOS
+    ====================================================== -->
     <section id="repo">
       <h2>Code Repos</h2>
       <a class="repo-link" href="https://github.com/Johnnyboy7781/hackathon-backend" target="_blank" rel="noopener">
@@ -64,10 +363,18 @@
         🪿 This Site
       </a>
     </section>
+
   </main>
 
   <footer>
+    <div class="goose-zone">
+      <span class="honk honk-left">HONK!</span>
+      <div class="goose-banner">🪿🪿🪿🪿</div>
+      <span class="honk honk-right">HONK!</span>
+    </div>
     <p>Built with 🪿 energy at the Richmond Civic Hackathon &middot; 2026</p>
+    <p class="footer-sub">A project by the Byrd Park Geese</p>
   </footer>
+
 </body>
 </html>
