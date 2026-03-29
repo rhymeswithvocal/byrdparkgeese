@@ -197,6 +197,35 @@
       font-style: italic;
     }
 
+    /* ---- Team LinkedIn buttons ---- */
+    #team {
+      text-align: center;
+    }
+
+    .team-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .linkedin-btn {
+      display: inline-block;
+      background: #0077b5;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.4rem;
+      border-radius: 999px;
+      font-family: monospace;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    .linkedin-btn:hover {
+      background: #005f93;
+    }
+
     /* ---- Bottom CTA ---- */
     #bottom-cta {
       text-align: center;
@@ -278,6 +307,22 @@
     </section>
 
     <!-- ======================================================
+         VIDEO
+    ====================================================== -->
+    <section id="video">
+      <h2>See it in Action</h2>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/VntDNxL_Vi4"
+          title="Text311 demo video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ======================================================
          WHAT HAPPENS WHEN YOU TEXT
     ====================================================== -->
     <section id="how-it-works">
@@ -349,6 +394,19 @@
       </ul>
       <p class="scope-note">Other request types are directed to RVA311, similar to the current system.</p>
       <p class="scope-note">Additional request types can be easily added given additional time.</p>
+    </section>
+
+    <!-- ======================================================
+         TEAM
+    ====================================================== -->
+    <section id="team">
+      <h2>The Byrd Park Geese</h2>
+      <div class="team-links">
+        <a class="linkedin-btn" href="https://www.linkedin.com/in/charlietrochlil" target="_blank" rel="noopener">🪿 Charlie</a>
+        <a class="linkedin-btn" href="https://www.linkedin.com/in/jvmcdonnell" target="_blank" rel="noopener">🪿 Johnny</a>
+        <a class="linkedin-btn" href="https://www.linkedin.com/in/annachappelle" target="_blank" rel="noopener">🪿 Anna</a>
+        <a class="linkedin-btn" href="https://www.linkedin.com/in/danielwillson" target="_blank" rel="noopener">🪿 Daniel</a>
+      </div>
     </section>
 
     <!-- ======================================================
